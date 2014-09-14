@@ -1,0 +1,98 @@
+body {
+  overflow: hidden;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: -80px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  z-index: 2;
+  color: #333;
+  text-align: center;
+  font: 200 9vh/15vh "Helvetica Neue", "Roboto-Light", "Segoe UI", Helvetica, Arial, sans-serif;
+  background: rgba(255,255,255,0.91);
+  padding: 20px 0;
+}
+
+.gridactually-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gridactually {
+  height: 100%;
+  background-color: #fff;
+  width: auto;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.gridactually .box {
+  float: left;
+  perspective: 1000;
+}
+
+.gridactually .box.flipped .images {
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+  -moz-transform: rotate3d(0, 1, 0, 180deg);
+  -o-transform: rotate3d(0, 1, 0, 180deg);
+  -ms-transform: rotate3d(0, 1, 0, 180deg);
+  transform: rotate3d(0, 1, 0, 180deg);
+}
+
+.gridactually .box .images {
+  -webkit-transition: -webkit-transform 0.6s;
+  -moz-transition: -moz-transform 0.6s;
+  -o-transition: -o-transform 0.6s;
+  -ms-transition: -ms-transform 0.6s;
+  transition: transform 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.gridactually .box .front,
+.gridactually .box .back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.gridactually .box .front {
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-color: #999;
+  background-size: cover;
+}
+
+.gridactually .box .back {
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+  -moz-transform: rotate3d(0, 1, 0, 180deg);
+  -o-transform: rotate3d(0, 1, 0, 180deg);
+  -ms-transform: rotate3d(0, 1, 0, 180deg);
+  transform: rotate3d(0, 1, 0, 180deg);
+}
+
+.gridactually-image {
+  position: absolute;
+  top: -3000px;
+}
+
+.gridactually-overlay {
+  background-color: rgba(255, 255, 255, 0.14);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
